@@ -5,7 +5,7 @@ This CLI follows [this prompt](./instructions/PROMPT.md), with [this input](./in
 
 ## Installation
 
-First, clone the repository. Then, run `bundle install` to install gem dependencies. Then, run `ruby main.rb < ./instructions/sample-input.txt` to read game results from the given file.
+First, clone the repository. Then, run `bundle install` to install gem dependencies. Then, run `ruby main.rb instructions/sample-input.txt` to read game results from the given file.
 
 ## Testing
 
@@ -13,7 +13,7 @@ To run the tests, run `rspec`.
 
 ## Design Approach
 
-I decided to use Ruby because I like the syntax and object-oriented design. Also, I have been working mostly in TypeScript, so I decided to challenge myself by working in Ruby, which I don't use on a daily basis. Also, I know that Jane uses Ruby, so I wanted to demonstrate my ability to learn.
+I decided to use Ruby because I like the syntax and object-oriented design. Also, I have been working mostly in TypeScript, so I decided to challenge myself by working in Ruby. Also, I know that Jane uses Ruby, so I wanted to demonstrate my ability to learn.
 
 I will approach the problem by breaking it down into smaller sub-problems:
 
@@ -21,3 +21,10 @@ I will approach the problem by breaking it down into smaller sub-problems:
 - Parse the input data to calculate the points for each team and determine the top teams.
 - Calculate the points for each team and determine the top teams.
 - Print the top teams for each match day when the end of the match day is detected.
+
+## Future Refactoring
+
+Given more time, here are some refactoring ideas that I could implement:
+
+- Separate some methods into another class, `Match`, and instantiate `Match` in the `League` class
+- Skip invalid inputs
