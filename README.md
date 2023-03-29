@@ -26,5 +26,5 @@ I will approach the problem by breaking it down into smaller sub-problems:
 
 Given more time, here are some refactoring ideas that I could implement:
 
-- Separate some methods into another class, `Match`, and instantiate `Match` in the `League` class
+- Potentially separate some methods into another class, `Match`, and instantiate `Match` in the `League` class
 - Skip invalid inputs
