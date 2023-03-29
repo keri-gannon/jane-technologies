@@ -10,7 +10,6 @@ class SoccerLeague
     @teams_and_points = {}
   end
 
-  # Process each matchday
   def process_matchday
     @game_results.each { |result| process_match(result) }
     @matchday_count += 1
@@ -19,7 +18,6 @@ class SoccerLeague
 
   private
 
-  # Determine the match score
   def determine_match_score(match)
     _, team_one_score, _, team_two_score = match
     # If team one has a higher score, team one gets 3 points
@@ -34,7 +32,6 @@ class SoccerLeague
     end
   end
 
-  # Determine the top three teams
   def determine_top_three_teams
     weekly_rankings = @teams_and_points.sort_by { |name, points| [-points, name] }
     top_three_teams = weekly_rankings.first(3)
@@ -44,7 +41,6 @@ class SoccerLeague
     end
   end
 
-  # Print the top three teams
   def display_matchday_rankings
     top_three_teams = determine_top_three_teams
     puts "\nMatchday #{@matchday_count}"
@@ -57,16 +53,13 @@ class SoccerLeague
     @played_teams[team_one] || @played_teams[team_two]
   end
 
-  # Parse the match result into an array
   def parse_match_result(result)
     # Split the result into an array of teams and scores
     teams_and_points = result.sub(', ', '').split(/([0-9])/)
-    # Return the array of teams and scores
     [teams_and_points[0].strip, teams_and_points[1],
      teams_and_points[2].strip, teams_and_points[3]]
   end
 
-  # Record the match result
   def record_match_result(match, team_one_score, team_two_score)
     team_one, _, team_two = match
     @played_teams[team_one] = true
@@ -82,7 +75,6 @@ class SoccerLeague
     end
   end
 
-  # Process each match result
   def process_match(match)
     match = parse_match_result(match)
 
@@ -93,7 +85,6 @@ class SoccerLeague
       display_matchday_rankings
     end
 
-    # Record the match result
     team_one_score, team_two_score = determine_match_score(match)
     record_match_result(match, team_one_score, team_two_score)
   end
